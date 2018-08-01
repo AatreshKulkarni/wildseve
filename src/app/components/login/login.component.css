@@ -1,0 +1,23 @@
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+}
+.signin-content {
+  padding: 60px 1rem;
+}
+.full-width-input {
+  width: 100%;
+}
+
+mat-toolbar {
+  border-bottom: 1px solid;
+}
+
+.signin-content {
+  background-color: burlywood;
+}
+
+mat-card {
+  background-color: blanchedalmond;
+}

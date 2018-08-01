@@ -1,0 +1,30 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+
+@media (min-width: 268px) {
+  .sidenav {
+    display: none;
+  }
+}
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar a {
+  display: inline-block;
+  margin: 0 10px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+}

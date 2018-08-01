@@ -1,0 +1,18 @@
+p {
+  font-family: Lato;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar-row {
+  border-bottom: 1px solid;
+}
+
+
+
+/* .container {
+  width: 80%;
+  margin: 30px auto;
+} */
