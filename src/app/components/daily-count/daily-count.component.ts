@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { DailyCountDataSource } from './daily-count-datasource';
-import { ConnectorService } from './../../services/connector.service';
+import { ConnectorService } from '../../services/connector.service';
 
 @Component({
   selector: 'app-daily-count',

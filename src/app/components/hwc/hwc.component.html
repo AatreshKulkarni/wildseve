@@ -2,6 +2,11 @@
   <span>My Application</span>
   </mat-toolbar> -->
 <div class="mat-elevation-z8 hwc">
+
+    <div>
+        <button type="button" (click)="download()" class="btn btn-info">EXCEL</button>
+      </div>
+
   <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
     <!-- Id Column -->
     <ng-container matColumnDef="id">

@@ -6,7 +6,7 @@ import { Data } from '../../models/data.model';
 import { Observable } from 'rxjs';
 
 
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-datatable',
@@ -31,7 +31,14 @@ export class DatatableComponent implements OnInit {
       'DC_USER_NAME'
     ];
 
+    totalPost = 10;
+    postPerPage = 5;
+    pageSizeOptions = [2, 4, 6, 8, 10];
   constructor(private wildService: ConnectorService) { }
+
+  onChangedPage(pageData: PageEvent) {
+      console.log(pageData);
+  }
 
   ngOnInit() {
     this.record = this.wildService.getData();
@@ -41,6 +48,47 @@ export class DatatableComponent implements OnInit {
       }
       this.dataSource = new MatTableDataSource(res.response);
     });
+  }
+
+  ConvertToCSV(objArray) {
+    const array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
+      let str = '';
+    let row = '';
+
+     // tslint:disable-next-line:forin
+     for (const index in objArray[0]) {
+         // Now convert each value to string and comma-separated
+         row += index + ',';
+     }
+     row = row.slice(0, -1);
+     // append Label row with line break
+     str += row + '\r\n';
+
+     for (let i = 0; i < array.length; i++) {
+        let line = '';
+         // tslint:disable-next-line:forin
+         for (const index in array[i]) {
+             // tslint:disable-next-line:curly
+             if (line !== '') line += ',';
+
+             line += array[i][index];
+         }
+         str += line + '\r\n';
+     }
+     return str;
+ }
+
+ download() {
+  const csvData = this.ConvertToCSV(this.dataSource.data);
+                         const a = document.createElement('a');
+                          a.setAttribute('style', 'display:none;');
+                          document.body.appendChild(a);
+                         const blob = new Blob([csvData], { type: 'text/csv' });
+                         const url = window.URL.createObjectURL(blob);
+                          a.href = url;
+                          a.download = 'Daily_count.csv'; /* your file name*/
+                          a.click();
+                          return 'success';
   }
 }
     //   if (!res) {

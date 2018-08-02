@@ -1,4 +1,7 @@
 <div class="mat-elevation-z8 hwc">
+    <div>
+        <button mat-raised-button (click)="download()" class="btn btn-primary " >Export to Excel</button>
+      </div>
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="DC_METAINSTANCE_ID">
       <mat-header-cell *matHeaderCellDef>DC_METAINSTANCE_ID</mat-header-cell>
@@ -27,4 +30,10 @@
     <mat-header-row *matHeaderRowDef="displayedCol"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedCol"></mat-row>
   </mat-table>
+  <!-- <mat-paginator
+  [length]="totalPost"
+  [pageSize]="postPerPage"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onChangedPage($event)">
+</mat-paginator> -->
 </div>
